@@ -15,7 +15,7 @@ body {
   background-color: #f5f3ef;
   color: #292929;
   line-height: 1.6;
-  overflow-x: hidden; /* empêche le scroll horizontal */
+  overflow-x: hidden;
 }
 
 /* ======== CONTAINER ======== */
@@ -25,11 +25,12 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+
 /* ======== NAVBAR ======== */
 .navbar {
   background-color: #F5F3EF;
   border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -39,19 +40,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap : 150px;
+  gap: 150px;
   height: 80px;
-  width : 100%;
+  width: 100%;
 }
 
-
-/* --- LOGO TOM TROC --- */
 .logo img {
-  width: 155px; /* ajuster selon la taille de ton SVG */
+  width: 155px;
   height: auto;
 }
 
-/* --- LIENS DE NAVIGATION --- */
 .nav-links {
   display: flex;
   gap: 24px;
@@ -59,7 +57,6 @@ body {
 }
 
 .nav-links a {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #292929;
   text-decoration: none;
@@ -67,10 +64,9 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-   font-weight: 600;
+  font-weight: 600;
 }
 
-/* --- DROITE DE LA NAVBAR --- */
 .nav-right {
   display: flex;
   gap: 16px;
@@ -87,9 +83,7 @@ body {
   font-weight: 600;
 }
 
-
-
-/* ======== SECTION HERO ======== */
+/* ======== HERO SECTION ======== */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -101,88 +95,142 @@ body {
   border-radius: 10px;
 }
 
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .hero-text h2 {
-  font-family: 'Playfair Display', serif; /* police Playfair Display */
-  font-weight: 400;       /* épaisseur : Regular */
-  font-style: normal;     /* style : Regular (non italique) */
-  font-size: 36px;        /* taille du texte */
-  line-height: 100%;      /* hauteur de ligne */
-  letter-spacing: 0;      /* espacement des lettres */
-  color : #000000;
-  width: 329px;       /* largeur */
-  height: 96px;       /* hauteur */
-  position: absolute; /* position précise */
-  top: 318px;         /* distance depuis le haut du parent */
-  left: 292px;        /* distance depuis la gauche du parent */
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 2.25rem;
+  color: #000;
 }
 
 .hero-text p {
-  color: #000000;
-  font-family: 'Inter', sans-serif; /* Police Inter */
-  font-weight: 300;       /* Épaisseur : Light */
-  font-style: normal;     /* Style : Regular / Light */
-  font-size: 16px;        /* Taille du texte */
-  line-height: 100%;      /* Hauteur de ligne */
-  letter-spacing: 0;      /* Espacement des lettres */
-  width: 328px;       /* largeur de l'élément */
-  height: 95px;       /* hauteur de l'élément */
-  position: absolute; /* positionnement précis par rapport au parent */
-  top: 430px;         /* distance depuis le haut du parent */
-  left: 290px;        /* distance depuis la gauche du parent */
-
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #000;
 }
 
 .btn {
-  display: flex;             /* Flux horizontal */
-  flex-direction: row;       /* Les éléments s’alignent horizontalement */
-  gap: 10px;                 /* Espace entre les éléments */
-  width: 152px;              /* largeur “Enserrer” */
-  height: 63px;              /* hauteur “Enserrer” */
-  position: absolute;        /* position précise */
-  top: 565px;                /* distance depuis le haut du parent */
-  left: 292px;               /* distance depuis la gauche du parent */
-  border-radius: 10px;       /* rayon des coins */
-  padding: 22px 38px;        /* marges intérieures : haut/bas 22px, gauche/droite 38px */
-  box-sizing: border-box;    /* inclut padding dans la largeur/hauteur */
-  background-color: #00AC66; /* rectangle vert */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  background-color: #00AC66;
   text-decoration: none;
-  color : #ffffff
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
 }
 
+.btn:hover {
+  background-color: #008a43;
+}
 
 .hero-image img {
-  width: 404px;    /* largeur de l'image */
-  height: 539px;   /* hauteur de l'image */
-  position: absolute; /* positionnement précis par rapport au parent */
-  top: 160px;      /* distance depuis le haut du parent */
-  left: 726px;     /* distance depuis la gauche du parent */
+  width: 100%;
+  max-width: 404px;
+  height: auto;
+  border-radius: 10px;
+  justify-self: end;
 }
 
 .image-author {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
-  color: #888;          /* gris clair pour que ce soit discret */
-  margin-top: 550px;
-  text-align: right;    /* optionnel : aligné à droite sous l’image */
+  color: #888;
+  margin-top: 0.5rem;
+  text-align: right;
 }
 
-/* ======== FOOTER ======== */
-.footer {
+/* ======== GRID DES LIVRES ======== */
+
+/* --- Home page --- */
+.books {
+  margin-top: 3rem;
+}
+
+.books h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  margin: 4rem 0 1rem;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  width: 100%;
+}
+
+/* --- Booklist page --- */
+.booklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* permet à la barre de recherche de passer en dessous sur mobile */
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.booklist-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #000;
+}
+
+.booklist-search-form {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  max-width: 300px;
+}
+
+.booklist-search {
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.booklist-search:focus {
+  outline: none;
+  border-color: #00ac66;
+  box-shadow: 0 0 0 2px rgba(0,172,102,0.2);
+}
+
+.books-grid-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
 }
 
 /* ======== RESPONSIVE ======== */
 @media (max-width: 992px) {
+  .books-grid,
+  .books-grid-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .nav-content {
     flex-wrap: wrap;
     gap: 12px;
   }
 
   .nav-links {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -199,7 +247,8 @@ body {
   }
 
   .hero-image {
-    order: -1;
+    justify-self: center;
+    margin-top: 1rem;
   }
 
   .nav-content {
@@ -211,4 +260,190 @@ body {
   .nav-links a {
     margin: 6px;
   }
+}
+
+@media (max-width: 600px) {
+  .books-grid,
+  .books-grid-list {
+    grid-template-columns: 1fr;
+  }
+
+  .booklist-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .booklist-search-form {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+}
+
+/* ======== BOOK CARD ======== */
+.book-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+}
+
+.book-card h4 {
+  font-size: 18px;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.book-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* ======== PAGE DETAIL LIVRE ======== */
+/* Fil d’Ariane */
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+    color: #00ac66;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #333;
+}
+
+/* Grille détail */
+.detail-grid {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Image */
+.detail-image {
+    flex: 1 1 400px;
+    max-width: 500px;
+}
+
+.detail-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Infos du livre */
+.detail-info {
+    flex: 1 1 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.detail-info .author {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.detail-info h3 {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.detail-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Propriétaire */
+.detail-info .owner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.owner-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Bouton envoyer un message */
+.btn-message {
+    padding: 1rem 2rem;
+    background-color: #00ac66;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    transition: background-color 0.3s;
+}
+
+.btn-message:hover {
+    background-color: #008a43;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .detail-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-info {
+        width: 100%;
+    }
+
+    .detail-image {
+        max-width: 100%;
+    }
+}
+
+
+/* ======== FOOTER ======== */
+footer img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
