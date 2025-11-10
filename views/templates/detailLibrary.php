@@ -27,7 +27,7 @@
             <p><?= nl2br(htmlspecialchars($book->getContent())) ?></p>
 
             <p class="owner">
-                Propriétaire : 
+                Proprietaire :  
                 <strong>
                     <img src="<?= htmlspecialchars($book->getOwnerImage()) ?>" alt="Propriétaire" class="owner-img" />
                     <?= htmlspecialchars($book->getNickname()) ?>

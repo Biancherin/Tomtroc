@@ -23,7 +23,7 @@
 
 <!-- GRID DES LIVRES -->
 <section class="books container">
-    <h3>Nos derniers livres</h3>
+    <h3>Les derniers livres ajoutés</h3>
     <div class="books-grid">
         <?php if (!empty($books)): ?>
             <?php foreach ($books as $book): ?>

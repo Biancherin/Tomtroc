@@ -2,12 +2,12 @@
 
 /**
  * Entité library, un book est défini par les champs
- * book_id, user_id, title, author, image, content, statut, date_creation, date_update
+ * book_id, user_t_id, title, author, image, content, statut, date_creation, date_update
  */
 
 class Library {
     private int $book_id;
-    private int $user_id;
+    private int $user_t_id;
     private string $title;
     private string $author;
     private string $image;
@@ -20,7 +20,7 @@ class Library {
 
     public function __construct(array $data) {
         $this->book_id = $data['book_id'];
-        $this->user_id = $data['user_id'];
+        $this->user_t_id = $data['user_t_id'];
         $this->title = $data['title'];
         $this->author = $data['author'];
         $this->image = $data['image'];
@@ -33,12 +33,12 @@ class Library {
     }
 
     public function getBookId(): int { return $this->book_id; }
-    public function getUserId(): int { return $this->user_id; }
+    public function getUserId(): int { return $this->user_t_id; }
     public function getTitle(): string { return $this->title; }
     public function getAuthor(): string { return $this->author; }
     public function getImage(): string { return $this->image; }
     public function getContent(): string { return $this->content; }
-    public function getSIsEnabled(): string { return $this->is_enabled; }
+    public function getIsEnabled(): string { return $this->is_enabled; }
     public function getDatecreation(): ?DateTime { return $this->date_creation; }
     public function getDateupdate(): ?DateTime { return $this->date_update; }
     public function getNickname(): ?string { return $this->nickname; }

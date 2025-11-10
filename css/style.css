@@ -1,4 +1,6 @@
-/* ======== RESET ======== */
+/* =========================================================
+   ✅ RESET
+========================================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,15 +20,18 @@ body {
   overflow-x: hidden;
 }
 
-/* ======== CONTAINER ======== */
+/* =========================================================
+   ✅ CONTAINER
+========================================================= */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
 }
 
-/* ======== NAVBAR ======== */
+/* =========================================================
+   ✅ NAVBAR
+========================================================= */
 .navbar {
   background-color: #F5F3EF;
   border-bottom: 1px solid #e5e7eb;
@@ -39,21 +44,17 @@ body {
 .nav-content {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 150px;
   height: 80px;
-  width: 100%;
 }
 
 .logo img {
   width: 155px;
-  height: auto;
 }
 
 .nav-links {
   display: flex;
   gap: 24px;
-  margin-left: 15px;
 }
 
 .nav-links a {
@@ -73,7 +74,6 @@ body {
 }
 
 .nav-right a {
-  margin-left: 20px;
   color: #292929;
   text-decoration: none;
   font-size: 0.95rem;
@@ -83,7 +83,9 @@ body {
   font-weight: 600;
 }
 
-/* ======== HERO SECTION ======== */
+/* =========================================================
+   ✅ HERO SECTION
+========================================================= */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -94,7 +96,6 @@ body {
   padding: 3rem 2rem;
   border-radius: 10px;
 }
-
 .hero-text {
   display: flex;
   flex-direction: column;
@@ -103,37 +104,14 @@ body {
 
 .hero-text h2 {
   font-family: 'Playfair Display', serif;
-  font-weight: 400;
   font-size: 2.25rem;
-  color: #000;
 }
-
 .hero-text p {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 1rem;
   color: #000;
 }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  padding: 0.8rem 1.2rem;
-  border-radius: 10px;
-  background-color: #00AC66;
-  text-decoration: none;
-  color: #fff;
-  font-size: 1rem;
-  margin-top: 1rem;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #008a43;
-}
-
 .hero-image img {
   width: 100%;
   max-width: 404px;
@@ -149,10 +127,21 @@ body {
   margin-top: 0.5rem;
   text-align: right;
 }
+.btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  background-color: #00AC66;
+  color: #fff;
+  text-decoration: none;
+}
 
-/* ======== GRID DES LIVRES ======== */
+.btn:hover {
+  background-color: #008a43;
+}
 
-/* --- Home page --- */
+/* =========================================================
+   ✅ BOOK GRID
+========================================================= */
 .books {
   margin-top: 3rem;
 }
@@ -172,7 +161,19 @@ body {
   width: 100%;
 }
 
-/* --- Booklist page --- */
+/* =========================================================
+   ✅ RESPONSIVE
+========================================================= */
+@media (max-width: 992px) {
+  .books-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+}
+/* =========================================================
+   ✅ BOOKLIST PAGE
+========================================================= */
 .booklist-header {
   display: flex;
   justify-content: space-between;
@@ -217,8 +218,9 @@ body {
   justify-items: center;
   width: 100%;
 }
-
-/* ======== RESPONSIVE ======== */
+/* =========================================================
+   ✅ RESPONSIVE
+========================================================= */
 @media (max-width: 992px) {
   .books-grid,
   .books-grid-list {
@@ -278,45 +280,9 @@ body {
     max-width: 100%;
   }
 }
-
-/* ======== BOOK CARD ======== */
-.book-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 100%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  overflow: hidden;
-}
-
-.book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.book-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.7rem;
-}
-
-.book-card h4 {
-  font-size: 18px;
-  margin-bottom: 0.4rem;
-  color: #333;
-}
-
-.book-card p {
-  font-size: 14px;
-  color: #555;
-  margin: 0;
-}
-
-/* ======== PAGE DETAIL LIVRE ======== */
+/* =========================================================
+   ✅ PAGE LIVRE DÉTAIL
+========================================================= */
 /* Fil d’Ariane */
 .breadcrumb {
     font-size: 0.9rem;
@@ -440,10 +406,364 @@ body {
     }
 }
 
+/* =========================================================
+   ✅ PAGES CONNEXION / INSCRIPTION
+========================================================= */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fdfcf9;
+  font-family: 'Inter', sans-serif;
+}
 
-/* ======== FOOTER ======== */
+/* Colonne gauche : formulaire */
+.auth-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 3rem;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+/* Formulaire */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.auth-form input {
+  padding: 0.85rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+  border-color: #00ac66;
+  box-shadow: 0 0 0 2px rgba(0, 172, 102, 0.15);
+}
+
+/* Bouton principal */
+.btn-auth {
+  background-color: #00ac66;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-auth:hover {
+  background-color: #008a4f;
+}
+
+/* Pied du formulaire (liens inscription/connexion) */
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-footer a {
+  color: #00ac66;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Colonne droite : image */
+.auth-right {
+  flex: 1;
+  overflow: hidden;
+}
+
+.auth-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    height: 300px;
+  }
+}
+
+
+/* =========================================================
+   ✅ MON PROFIL — VERSION FINALE
+========================================================= */
+
+.mon-profil {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.monprofil-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* --- Profil utilisateur --- */
+.profil-section {
+  width: 30%;
+  text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.profil-photo img {
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+.modifier-photo {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #00ac66;
+}
+
+/* --- Infos personnelles --- */
+.infos-section {
+  width: 70%;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-infos label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.form-infos input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.btn-enregistrer {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* --- Liste des livres --- */
+.liste-livres-section h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-family: 'Playfair Display', serif;
+}
+
+.livres-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.livres-table th {
+  background: #f0f0f0;
+  font-weight: 600;
+}
+
+.livres-table th,
+.livres-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.book-img {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.actions-td a {
+  font-size: 22px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.btn-edit { color: #1b73e8; }
+.btn-delete { color: #e83e3e; }
+/* =========================================================
+   ✅ MODIFY BOOK PAGE
+========================================================= */
+
+.modify-book {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+.back-link {
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.page-title {
+  font-size: 28px;
+  margin: 10px 0 30px;
+  font-weight: 600;
+}
+
+.modify-container {
+  display: flex;
+  gap: 40px;
+}
+
+.left-section,
+.right-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.left-section {
+  width: 35%;
+  text-align: center;
+}
+
+.right-section {
+  width: 65%;
+}
+
+.small-label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.book-photo img {
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.textarea-field {
+  height: 120px;
+  resize: none;
+}
+
+.btn-save {
+  padding: 12px 20px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-save:hover {
+  background: #3b7ac0;
+}
+
+
+
+/* =========================================================
+   ✅ FOOTER
+========================================================= */
 footer img {
   max-width: 100%;
-  height: auto;
   display: block;
+}
+
+
+/* =========================================================
+   ✅ RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .modify-container,
+  .detail-container,
+  .monprofil-container {
+    flex-direction: column;
+  }
+
+  .profil-section,
+  .infos-section,
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  .detail-photo img {
+    width: 100%;
+    height: auto;
+  }
 }

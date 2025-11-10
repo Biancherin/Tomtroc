@@ -18,8 +18,8 @@
         </nav>
         <div class="nav-right">
             <a href="#">💬 Messagerie</a>
-            <a href="#">👤 Mon compte</a>
-            <a href="#" class="login">Connexion</a>
+            <a href="index.php?page=moncompte" class="<?= ($_GET['page'] ?? '') === 'moncompte' ? 'active' : '' ?>">👤 Mon compte</a>
+            <a href="index.php?page=connexion" class="<?= ($_GET['page'] ?? '') === 'connexion' ? 'active' : '' ?>">Connexion</a>
         </div>
     </div>
 </header>

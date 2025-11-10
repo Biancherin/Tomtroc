@@ -12,12 +12,15 @@ require_once ROOT_PATH . '/config/autoload.php';
 $page = $_GET['page'] ?? 'home';
 
 // Instancier le controller une seule fois
-$controller = new LibraryController($dbConnection);
+$libraryController = new LibraryController($dbConnection);
+$userController = new UserController($dbConnection);
+
+session_start();
 
 // Router selon la page
 switch ($page) {
     case 'home':
-        $controller->home();
+        $libraryController->home();
         break;
 
     case 'detail':
@@ -26,12 +29,50 @@ switch ($page) {
             exit;
         }
         $bookId = (int) $_GET['book_id'];
-        $controller->detail($bookId);
+        $libraryController->detail($bookId);
         break;
     
     case 'booklist': 
-        $controller->booklist();
+        $libraryController->booklist();
         break;
+    
+    case 'connexion':
+        $userController->connexion();
+    break;
+
+    case 'loginAction':
+        $userController->loginAction();
+    break;
+
+    case 'inscription':
+        $userController->inscription();
+    break;
+
+    case 'monprofil':
+        $userController->monprofil();
+    break;
+
+    case 'moncompte':
+        $userController->monprofil();
+    break;
+
+    case 'updateUser':   
+        $userController->updateProfileAction();
+        break;
+    
+    case 'editBook':
+        $bookId = intval($_GET['book_id'] ?? 0);
+        $libraryController->editBook($bookId);
+    break;
+
+    case 'updateBook':
+        $libraryController->updateBook();
+    break;
+
+    case 'updateBookImage':
+     $libraryController->updateBookImage();
+    break;
+
 
     default:
         echo "<p>Page non trouvée.</p>";
