@@ -76,27 +76,34 @@ class LibraryManager {
        ✅ Tous les livres triés
        ============================ */
     public function getAllBooksOrderedByDate(): array {
-        $sql = "
-            SELECT 
-                l.book_id,
-                l.user_t_id,
-                l.title,
-                l.author,
-                l.image,
-                l.content,
-                l.is_enabled,
-                l.date_creation,
-                l.date_update,
-                u.nickname,
-                u.image AS owner_image
-            FROM library l
-            JOIN user_t u ON l.user_t_id = u.user_t_id
-            ORDER BY l.date_creation DESC
-        ";
+    $sql = "
+        SELECT 
+            l.book_id,
+            l.user_t_id,
+            l.title,
+            l.author,
+            l.image,
+            l.content,
+            l.is_enabled,
+            l.date_creation,
+            l.date_update,
+            u.nickname,
+            u.image AS owner_image
+        FROM library l
+        JOIN user_t u ON l.user_t_id = u.user_t_id
+        ORDER BY l.date_creation DESC
+    ";
 
-        $stmt = $this->pdo->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $this->pdo->query($sql);
+
+    $books = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $books[] = new Library($row);
     }
+
+    return $books;
+}
+
 
     /* ============================
        ✅ Livres d’un utilisateur
@@ -127,6 +134,44 @@ class LibraryManager {
         }
         return $books;
     }
+
+    /* ============================
+       ✅ Recherche un lire
+       ============================ */  
+    public function searchBooks(string $keyword): array {
+    $keyword = '%' . strtolower(trim($keyword)) . '%';
+
+    $sql = "
+        SELECT 
+            l.book_id,
+            l.user_t_id,
+            l.title,
+            l.author,
+            l.image,
+            l.content,
+            l.is_enabled,
+            l.date_creation,
+            l.date_update,
+            u.nickname,
+            u.image AS owner_image
+        FROM library l
+        JOIN user_t u ON l.user_t_id = u.user_t_id
+        WHERE LOWER(l.title) LIKE :keyword
+           OR LOWER(l.author) LIKE :keyword
+        ORDER BY l.date_creation DESC
+    ";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([':keyword' => $keyword]);
+
+    $books = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $books[] = new Library($row);
+    }
+
+    return $books;
+}
+
 
     /* ============================
        ✅ Ajouter un livre

@@ -1,9 +1,3 @@
-<?php
-/**
- * Detail d'un livre
- */
-?>
-
 <main class="container detail-book">
 
     <!-- Fil d’Ariane -->
@@ -27,15 +21,20 @@
             <p><?= nl2br(htmlspecialchars($book->getContent())) ?></p>
 
             <p class="owner">
-                Proprietaire :  
+                Propriétaire :  
                 <strong>
-                    <img src="<?= htmlspecialchars($book->getOwnerImage()) ?>" alt="Propriétaire" class="owner-img" />
-                    <?= htmlspecialchars($book->getNickname()) ?>
+                    <a href="index.php?page=moncompte&user_id=<?= $book->getUserTId() ?>">
+                        <img src="<?= htmlspecialchars($book->getOwnerImage()) ?>" alt="Propriétaire" class="owner-img" />
+                        <?= htmlspecialchars($book->getNickname()) ?>
+                    </a>
                 </strong>
             </p>
 
-            <!-- Gros bouton envoyer un message -->
-            <button class="btn-message">Envoyer un message</button>
+            <!-- Bouton envoyer un message -->
+            <a href="index.php?page=messages&to=<?= $book->getUserTId() ?>&book_id=<?= $book->getBookId() ?>" 
+               class="btn-message">
+               Envoyer un message
+            </a>
         </div>
     </div>
 </main>

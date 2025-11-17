@@ -1,32 +1,70 @@
-<section class="mon-compte">
-    <div class="profil">
-        <img src="<?= htmlspecialchars($user['image'] ?? 'img/default-user.png') ?>" alt="Photo de profil" class="profil-photo">
-        <h2><?= htmlspecialchars($user['nickname']) ?></h2>
-        <p>Membre depuis le <?= date('Y', strtotime($user['date_creation'])) ?></p>
-        <p><strong><?= count($books) ?></strong> livres</p>
-        <a href="index.php?page=message&to=<?= $userId ?>" class="btn">Écrire un message</a>
+<section class="mon-compte container">
+
+    <!-- ✅ PROFIL UTILISATEUR -->
+    <div class="profilu">
+        <img src="<?= htmlspecialchars($user->getImage() ?: 'img/default-user.png') ?>" 
+             alt="Photo de <?= htmlspecialchars($user->getNickname()) ?>" 
+             class="profilu-photo">
+
+        <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
+
+        <p>Membre depuis <?= $user->getDateCreation()->format('Y') ?></p>
+
+        <h3>Bibliothèque</h3>
+
+        <p><strong><?= count($books) ?></strong> livre<?= count($books) > 1 ? 's' : '' ?></p>
+
+        <a href="index.php?page=message&to=<?= $userId ?>" class="btnu">Écrire un message</a>
     </div>
 
-    <div class="livres">
-        <table class="livres-table">
-            <thead>
-                <tr>
-                    <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
+
+
+    <!-- ✅ TABLEAU DES LIVRES -->
+    <div class="livresu">
+
+        <!-- En-têtes du tableau -->
+        <div class="book-card header">
+            <div><strong>PHOTO</strong></div>
+            <div><strong>TITRE</strong></div>
+            <div><strong>AUTEUR</strong></div>
+            <div><strong>DESCRIPTION</strong></div>
+        </div>
+
+        <div class="books-grid-listu">
+            <?php if (!empty($books)): ?>
                 <?php foreach ($books as $book): ?>
-                    <tr>
-                        <td><img src="<?= htmlspecialchars($book['image']) ?>" alt="<?= htmlspecialchars($book['title']) ?>" class="book-img"></td>
-                        <td><?= htmlspecialchars($book['title']) ?></td>
-                        <td><?= htmlspecialchars($book['author']) ?></td>
-                        <td><?= htmlspecialchars($book['content']) ?></td>
-                    </tr>
+                    <div class="book-cardu">
+                        
+                        <!-- Photo -->
+                        <a href="index.php?page=detail&book_id=<?= $book->getBookId() ?>">
+                            <img src="<?= htmlspecialchars($book->getImage()) ?>" 
+                                 alt="<?= htmlspecialchars($book->getTitle()) ?>" 
+                                 class="book-imageu">
+                        </a>
+
+                        <!-- Titre -->
+                        <div>
+                            <h4><?= htmlspecialchars($book->getTitle()) ?></h4>
+                        </div>
+
+                        <!-- Auteur -->
+                        <div>
+                            <p><strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <p class="book-descu"><?= htmlspecialchars($book->getContent()) ?></p>
+                        </div>
+
+                    </div>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
+            <?php else: ?>
+                <p style="padding: 20px;">Cet utilisateur n’a publié aucun livre pour le moment.</p>
+            <?php endif; ?>
+        </div>
+
     </div>
+
 </section>
+

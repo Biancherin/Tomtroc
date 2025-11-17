@@ -17,8 +17,13 @@
             <a href="index.php?page=booklist" class="<?= ($_GET['page'] ?? '') === 'booklist' ? 'active' : '' ?>">Nos livres à l’échange</a>
         </nav>
         <div class="nav-right">
-            <a href="#">💬 Messagerie</a>
-            <a href="index.php?page=moncompte" class="<?= ($_GET['page'] ?? '') === 'moncompte' ? 'active' : '' ?>">👤 Mon compte</a>
+            <a href="index.php?page=messages" class="<?= ($_GET['page'] ?? '') === 'messages' ? 'active' : '' ?>" style="position: relative;">
+            💬 Messagerie
+            <?php if (!empty($unreadCount)): ?>
+            <span class="notif-bubble"><?= $unreadCount ?></span>
+            <?php endif; ?>
+            </a>
+            <a href="index.php?page=monprofil" class="<?= ($_GET['page'] ?? '') === 'moncompte' ? 'active' : '' ?>">👤 Mon compte</a>
             <a href="index.php?page=connexion" class="<?= ($_GET['page'] ?? '') === 'connexion' ? 'active' : '' ?>">Connexion</a>
         </div>
     </div>

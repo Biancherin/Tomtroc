@@ -9,10 +9,9 @@
     <div class="booklist-header">
         <h2 class="booklist-title">Nos livres à l’échange</h2>
 
-        <form method="get" action="index.php" class="booklist-search-form">
+        <form method="GET" action="index.php" class="booklist-search-form">
             <input type="hidden" name="page" value="booklist">
-            <input 
-                type="text" 
+            <input type="text" 
                 name="q" 
                 class="booklist-search" 
                 placeholder="Rechercher un livre..." 
@@ -28,16 +27,15 @@
                 <?php foreach ($books as $book): ?>
                     <div class="book-card">
                         <!-- Image cliquable vers la page détail -->
-                        <a href="index.php?page=detail&book_id=<?= htmlspecialchars($book['id'] ?? $book['book_id'] ?? '') ?>">
-                            <img 
-                                src="<?= htmlspecialchars($book['image']) ?>" 
-                                alt="<?= htmlspecialchars($book['title']) ?>" 
-                                class="book-image"
-                            />
+                        <a href="index.php?page=detail&book_id=<?= htmlspecialchars($book->getBookId()) ?>">
+                            <img src="<?= htmlspecialchars($book->getImage()) ?>" alt="<?= htmlspecialchars($book->getTitle()) ?>" 
+                                class="book-image"/>
                         </a>
-                        <h4><?= htmlspecialchars($book['title']) ?></h4>
-                        <p>par <strong><?= htmlspecialchars($book['author']) ?></strong></p>
-                        <p><em>Vendu par : <?= htmlspecialchars($book['nickname']) ?></em></p>
+                        <h4><?= htmlspecialchars($book->getTitle()) ?></h4>
+                        <p>par <strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
+
+                        <p><em>Vendu par : <?= htmlspecialchars($book->getNickname()) ?></em></p>
+
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>

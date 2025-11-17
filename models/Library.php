@@ -33,7 +33,7 @@ class Library {
     }
 
     public function getBookId(): int { return $this->book_id; }
-    public function getUserId(): int { return $this->user_t_id; }
+    public function getUserTId(): int { return $this->user_t_id; }
     public function getTitle(): string { return $this->title; }
     public function getAuthor(): string { return $this->author; }
     public function getImage(): string { return $this->image; }

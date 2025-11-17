@@ -23,9 +23,12 @@
 
                 <input type="hidden" name="book_id" value="<?= $book->getBookId() ?>">
 
-                <input type="file" name="image" class="upload-input" accept="image/*">
+                <!-- Input file caché -->
+                <input type="file" name="image" id="imageUpload" class="upload-input" accept="image/*" style="display:none;">
 
-                <button type="submit" class="btn-save">Mettre à jour la photo</button>
+                <!-- Label cliquable pour l'input file -->
+                <label for="imageUpload" class="custom-upload">Modifier la photo</label>
+
             </form>
         </div>
 

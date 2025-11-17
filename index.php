@@ -14,8 +14,8 @@ $page = $_GET['page'] ?? 'home';
 // Instancier le controller une seule fois
 $libraryController = new LibraryController($dbConnection);
 $userController = new UserController($dbConnection);
+$messageController = new MessageController($dbConnection);
 
-session_start();
 
 // Router selon la page
 switch ($page) {
@@ -53,7 +53,7 @@ switch ($page) {
     break;
 
     case 'moncompte':
-        $userController->monprofil();
+        $userController->moncompte();
     break;
 
     case 'updateUser':   
@@ -70,9 +70,20 @@ switch ($page) {
     break;
 
     case 'updateBookImage':
-     $libraryController->updateBookImage();
+        $libraryController->updateBookImage();
     break;
 
+    case 'messages':
+        $messageController->showMessages();
+    break;
+
+    case 'messagerie':
+        $messageController->showMessages();
+    break;
+
+    case 'sendMessage':
+        $messageController->sendMessage();
+    break;
 
     default:
         echo "<p>Page non trouvée.</p>";
