@@ -14,9 +14,8 @@
 
         <p><strong><?= count($books) ?></strong> livre<?= count($books) > 1 ? 's' : '' ?></p>
 
-        <a href="index.php?page=message&to=<?= $userId ?>" class="btnu">Écrire un message</a>
+        <a href="index.php?page=messages&to=<?= $userId ?>" class="btnu">Écrire un message</a>
     </div>
-
 
 
     <!-- ✅ TABLEAU DES LIVRES -->

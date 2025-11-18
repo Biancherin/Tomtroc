@@ -27,13 +27,13 @@ class User {
     public function getPassword(): string { return $this->password; }
     public function getNickname(): string { return $this->nickname; }
     public function getImage(): string { return $this->image; }
-    public function getDatecreation(): ?DateTime { return $this->date_creation; }
+    public function getDateCreation(): ?DateTime { return $this->date_creation; }
 
     public function setUserTId(int $user_t_id): void { $this->user_t_id = $user_t_id; }
     public function setEmail(string $email): void { $this->email = $email; }
     public function setPassword(string $password): void { $this->password = $password; }
     public function setNickname(string $nickname): void { $this->nickname = $nickname; }
     public function setImage(?string $image): void { $this->image = $image; }
-    public function setDatecreation(): ?DateTime { return $this->date_creation; }
+    public function setDateCreation(): ?DateTime { return $this->date_creation; }
 
 }

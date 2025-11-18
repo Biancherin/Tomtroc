@@ -219,11 +219,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Carte mise en avant */
-.how-card.highlight {
-    border: 2px solid #4CAF50;
-    background: #fafffa;
-}
 
 /* Hover global */
 .how-card:hover {
@@ -731,6 +726,13 @@ body {
   color: #00ac66;
 }
 
+.add-book-btn {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #00ac66;
+}
+
 /* --- Infos personnelles --- */
 .infos-section {
   width: 70%;
@@ -809,114 +811,186 @@ body {
 /* =========================================================
    ✅ MON COMPTE PUBLIC
 ========================================================= */
+/* =============================
+   LAYOUT GLOBAL
+============================= */
+.mon-compte.container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
+    font-family: "Inter", Arial, sans-serif;
+    color: #222;
+}
 
+/* =============================
+   CARTE PROFIL
+============================= */
 .profilu {
+    width: 320px;
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #f1f1f1;
 }
 
 .profilu-photo {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    object-fit: cover;
+    margin-bottom: 25px;
 }
 
+/* Nom */
 .profilu h2 {
-    margin-top: 10px;
-    font-size: 26px;
-    color: #333;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
+/* Texte gris */
 .profilu p {
-    color: #777;
-    margin-bottom: 12px;
-    font-size: 15px;
+    color: #6e6e6e;
+    font-size: 0.95rem;
+    margin: 6px 0;
 }
 
+/* Sous-titres */
 .profilu h3 {
-    font-size: 14px;
-    letter-spacing: 1px;
     margin-top: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #777;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.5px;
 }
 
-.btnu {
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: 2px solid #2E9E56;
-    background: #2E9E56;
-    color: white;
+/* Icône + nombre */
+.profilu strong {
     font-weight: 600;
-    margin-top: 30px;
+}
+
+/* Bouton vert style “outline” */
+.btnu {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: 2px solid #39b26e;
+    background: transparent;
+    color: #2d9e63;
+    font-weight: 600;
+    font-size: 1rem;
     text-decoration: none;
     transition: 0.2s;
 }
 
 .btnu:hover {
-    background: #2E9E56;
-    color: white;
+    background: #e8f8ef;
 }
 
-/* ====== LISTE LIVRES ====== */
-
+/* =============================
+   LISTE DES LIVRES
+============================= */
 .livresu {
+    flex: 1;
     background: #ffffff;
-    border-radius: 20px;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 30px;
+    padding: 25px;
+    border: 1px solid #f1f1f1;
 }
 
-/* GRID DU TABLEAU */
-.books-grid-listu {
-    width: 100%;
-}
-
-/* Lignes alternées */
-.books-cardu {
+/* En-tête */
+.book-card.header {
     display: grid;
-    grid-template-columns: 140px 200px 180px 1fr;
-    padding: 25px 30px;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-}
-
-.books-cardu:nth-child(odd) {
-    background: #F2F6FA;
-}
-
-/* Image */
-.book-imageu {
-    width: 100px;
-    height: 100px;
-    border-radius: 6px;
-    object-fit: cover;
-}
-
-/* Titre + texte */
-.book-cardu h4 {
-    margin: 0 0 5px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.book-cardu p {
-    margin: 0;
-    color: #666;
-    font-size: 14px;
-}
-
-.book-descu {
+    grid-template-columns: 140px 1fr 200px 1fr;
+    padding: 10px 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
     color: #777;
+    border-bottom: 1px solid #ececec;
 }
+
+/* Grille livres */
+.books-grid-listu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+/* Ligne */
+.book-cardu {
+    display: grid;
+    grid-template-columns: 140px 1fr 200px 1fr;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Alternance fond bleu clair */
+.book-cardu:nth-child(even) {
+    background: #eef4f8;
+}
+
+/* Image livre */
+.book-imageu {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Titre */
+.book-cardu h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Auteur */
+.book-cardu p strong {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Description */
+.book-descu {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.35;
+    max-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 1000px) {
+    .mon-compte.container {
+        flex-direction: column;
+    }
+
+    .book-card.header,
+    .book-cardu {
+        grid-template-columns: 100px 1fr;
+    }
+
+    /* Cache les colonnes auteur + description sur mobile */
+    .book-card.header div:nth-child(3),
+    .book-card.header div:nth-child(4),
+    .book-cardu div:nth-child(3),
+    .book-cardu div:nth-child(4) {
+        display: none;
+    }
+}
+
 
 /* =========================================================
    ✅ MODIFY BOOK PAGE
@@ -1197,8 +1271,9 @@ body {
    ✅ FOOTER
 ========================================================= */
 footer img {
-  max-width: 100%;
-  display: block;
+  background: url('../img/Footer.png') no-repeat center/cover;
+  width: 100%;
+  height: 80px; /* ajustable */
 }
 
 

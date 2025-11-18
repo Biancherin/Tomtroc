@@ -85,6 +85,19 @@ switch ($page) {
         $messageController->sendMessage();
     break;
 
+    case 'addBookAction':
+        $libraryController->saveBook();
+    break;
+
+    case 'addBook':
+        $libraryController->addBook();
+    break;
+
+    case 'deleteBook' :
+        $bookId = intval($_GET['book_id'] ?? 0);
+        $libraryController->deletebook($bookId);
+    break;
+
     default:
         echo "<p>Page non trouvée.</p>";
         break;
