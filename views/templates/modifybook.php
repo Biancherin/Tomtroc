@@ -12,22 +12,23 @@
             <label class="small-label">Photo</label>
 
             <div class="book-photo">
-                <img src="<?= htmlspecialchars($book->getImage()) ?>" 
-                     alt="Photo du livre">
+                <img src="<?= htmlspecialchars($book->getImage() ?? 'img/defaultbook.png') ?>" 
+                        alt="Photo du livre">
             </div>
 
-            <!-- Upload photo -->
+            <!-- formulaire pour modifier la  photo -->
             <form action="index.php?page=updateBookImage" 
                   method="post" 
                   enctype="multipart/form-data">
 
                 <input type="hidden" name="book_id" value="<?= $book->getBookId() ?>">
+            <!-- Input file caché -->
+            <input type="file" name="image" id="imageUpload" accept="image/*" style="display:none;" required>
 
-                <!-- Input file caché -->
-                <input type="file" name="image" id="imageUpload" class="upload-input" accept="image/*" style="display:none;">
-
-                <!-- Label cliquable pour l'input file -->
-                <label for="imageUpload" class="custom-upload">Modifier la photo</label>
+            <!-- Label cliquable -->
+            <label for="imageUpload" class="custom-upload">Modifier la photo</label>
+            <!-- Bouton submit spécifique à ce formulaire -->
+            <button type="submit" class="btn-save">Valider la photo</button>
 
             </form>
         </div>

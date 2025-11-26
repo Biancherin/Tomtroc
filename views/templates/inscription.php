@@ -4,7 +4,7 @@
         <section class="auth-box">
             <h2>Inscription</h2>
 
-            <form method="post" action="index.php?page=register_action" class="auth-form">
+            <form method="post" action="index.php?page=registerAction" class="auth-form">
                 <label for="nickname">Pseudo</label>
                 <input type="text" id="nickname" name="nickname" placeholder="Votre pseudo" required>
 
@@ -20,6 +20,7 @@
             <p class="auth-footer">
                 Déjà inscrit ? <a href="index.php?page=connexion">Connectez-vous</a>
             </p>
+         </div>
         </section>
 
     <!-- Partie droite : image -->

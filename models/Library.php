@@ -10,7 +10,7 @@ class Library {
     private int $user_t_id;
     private string $title;
     private string $author;
-    private string $image;
+    private string $image; // plus nullable
     private string $content;
     private string $is_enabled ='1';
     private ?DateTime $date_creation = null;
@@ -23,7 +23,7 @@ class Library {
         $this->user_t_id = $data['user_t_id'];
         $this->title = $data['title'];
         $this->author = $data['author'];
-        $this->image = $data['image'];
+        $this->image = $data['image'] ?? 'img/defaultbook.png'; // image par défaut
         $this->content = $data['content'];
         $this->is_enabled = $data['is_enabled'] ?? '1';
         $this->date_creation = isset($data['date_creation']) ? new DateTime($data['date_creation']) : null;

@@ -48,6 +48,10 @@ switch ($page) {
         $userController->inscription();
     break;
 
+    case 'registerAction':
+        $userController->registerAction();
+    break;
+
     case 'monprofil':
         $userController->monprofil();
     break;

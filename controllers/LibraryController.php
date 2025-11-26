@@ -75,9 +75,7 @@ class LibraryController extends BaseController {
         $author = trim($_POST['author'] ?? '');
         $content = trim($_POST['content'] ?? '');
         $isEnabled = intval($_POST['is_enabled'] ?? 1);
-
-        /* ==== IMAGE ==== */
-        $imagePath = $this->defaultBookImage; // image par défaut
+        $imagePath = trim($_POST['image'] ?? '') ?: null; // récupère la valeur saisie ou null
 
         if ($title && $author) {
             $this->manager->addBook([
@@ -162,21 +160,32 @@ class LibraryController extends BaseController {
         /** @var User $user */
         $user = $_SESSION['user'];
         $userId = $user->getUserTId();
-
         $bookId = intval($_POST["book_id"] ?? 0);
+
         $book = $this->manager->getBookById($bookId);
 
         if (!$book || $book->getUserTId() !== $userId) {
             echo "<p>Accès refusé.</p>";
             exit;
         }
-         /* ==== NOUVELLE IMAGE ==== */
-         $imagePath = $this->defaultBookImage; // image par défaut
-         
+        // Vérifie qu’un fichier a été uploadé
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['image']['tmp_name'];
+            $fileName = uniqid() . '-' . basename($_FILES['image']['name']);
+            $uploadDir = 'img/'; // ton dossier d’images
+            $destPath = $uploadDir . $fileName;
 
-        header("Location: index.php?page=editBook&book_id=" . $bookId);
-        exit;
+        if (move_uploaded_file($fileTmpPath, $destPath)) {
+            // Met à jour le chemin dans la base
+            $this->manager->updateBookImage($bookId, $destPath);
+        } else {
+            echo "<p>Erreur lors de l'upload de l'image.</p>";
+        }
     }
+            header("Location: index.php?page=editBook&book_id=" . $bookId);
+        exit;
+}
+
 
     /** ===== SUPPRIMER UN LIVRE ===== */
     public function deleteBook(int $bookId): void {

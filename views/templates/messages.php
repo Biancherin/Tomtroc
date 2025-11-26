@@ -51,11 +51,12 @@
                             ?>
                             <div class="message <?= $isSender ? 'sent' : 'received' ?>">
                                 <img src="<?= htmlspecialchars($userImg) ?>" alt="avatar" class="msg-avatar">
+                                
+                                 <span class="msg-time">
+                                    <?= $msg->getDateMessage() ? $msg->getDateMessage()->format('d.m H:i') : '' ?>
+                                </span>
                                 <div class="message-content">
                                     <p><?= nl2br(htmlspecialchars($msg->getContent())) ?></p>
-                                    <span class="message-date">
-                                        <?= $msg->getDateMessage() ? $msg->getDateMessage()->format('d.m H:i') : '' ?>
-                                    </span>
                                 </div>
                             </div>
                         <?php endforeach; ?>

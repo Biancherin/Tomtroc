@@ -2,9 +2,11 @@
 
     <!-- ✅ PROFIL UTILISATEUR -->
     <div class="profilu">
-        <img src="<?= htmlspecialchars($user->getImage() ?: 'img/default-user.png') ?>" 
-             alt="Photo de <?= htmlspecialchars($user->getNickname()) ?>" 
+        <img src="<?= htmlspecialchars($user->getImage() ?: 'img/defaultavatar.png') ?>" 
+             alt="Photo de profil <?= htmlspecialchars($user->getNickname()) ?>" 
              class="profilu-photo">
+
+        <div class="profile-divider"></div>
 
         <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
 

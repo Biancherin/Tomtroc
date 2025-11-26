@@ -4,8 +4,9 @@
  */
 ?>
 
-<main class="home hero container">
+<main class="home hero">
     <!-- HERO SECTION -->
+    <div class="contenair hero-content">
     <div class="hero-text">
         <h2>Rejoignez nos lecteurs passionnés</h2>
         <p>
@@ -18,6 +19,7 @@
     <div class="hero-image">
         <img src="img/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png" alt="Image page accueil" />
         <div class="image-author">Hamza</div>
+    </div>
     </div>
 </main>
 
@@ -32,7 +34,7 @@
                         <img src="<?= htmlspecialchars($book->getImage()) ?>" alt="<?= htmlspecialchars($book->getTitle()) ?>" class="book-image" />
                     </a>
                     <h4><?= htmlspecialchars($book->getTitle()) ?></h4>
-                    <p>par <strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
+                    <p> <strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
                     <p>Vendu par : <strong><?= htmlspecialchars($book->getNickname()) ?></strong></p>
                 </div>
             <?php endforeach; ?>
@@ -40,10 +42,12 @@
             <p>Aucun livre disponible pour le moment.</p>
         <?php endif; ?>
     </div>
+    <a href="index.php?page=booklist" class="view-all-btn">Voir tous les livres</a>
 </section>
 
 <!-- ============================ COMMENT ÇA MARCHE ============================ -->
-<section class="how-it-works container">
+<section class="how-it-works">
+    <div class="container">
     <h2>Comment ça marche ?</h2>
     <p class="how-subtitle">
         Échanger des livres avec TomTroc c’est simple et amusant ! Suivez ces étapes pour commencer :
@@ -84,27 +88,29 @@
 
 
 <!-- ============================ NOS VALEURS ============================ -->
-<section class="values container">
-    <h2>Nos valeurs</h2>
+<section class="values">
+    <div class="container">
+        <h2>Nos valeurs</h2>
 
-    <p>
-        Chez Tom Troc, nous mettons l’accent sur le partage, la découverte et la communauté. 
-        Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. 
-        Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.
-    </p>
+        <p>
+            Chez Tom Troc, nous mettons l’accent sur le partage, la découverte et la communauté. 
+            Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. 
+            Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.
+        </p>
 
-    <p>
-        Notre association a été fondée avec une conviction profonde : chaque livre mérite d’être lu et partagé.
-    </p>
+        <p>
+         Notre association a été fondée avec une conviction profonde : chaque livre mérite d’être lu et partagé.
+        </p>
 
-    <p>
-        Nous sommes passionnés par la création d’une plateforme conviviale qui permet aux lecteurs de se connecter, 
-        de partager leurs découvertes littéraires et d’échanger des livres qui attendent patiemment sur les étagères.
-    </p>
+        <p>
+            Nous sommes passionnés par la création d’une plateforme conviviale qui permet aux lecteurs de se connecter, 
+            de partager leurs découvertes littéraires et d’échanger des livres qui attendent patiemment sur les étagères.
+        </p>
 
-    <p class="values-signature">L’équipe Tom Troc</p>
+        <p class="values-signature">L’équipe Tom Troc</p>
 
-    <div class="values-icon">
-        <img src="img/heart.png" alt="Icône cœur" />
+        <div class="values-icon">
+            <img src="img/heart.png" alt="Icône cœur" />
+        </div>
     </div>
 </section>

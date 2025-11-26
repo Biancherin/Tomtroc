@@ -188,7 +188,7 @@ class LibraryManager {
             ':user_t_id'   => $data['user_t_id'],
             ':title'       => $data['title'],
             ':author'      => $data['author'],
-            ':image'       => $data['image'],
+            ':image'       => $data['image'] ?? null, // <-- image facultative
             ':content'     => $data['content'],
             ':is_enabled'  => $data['is_enabled'] ?? 1
         ]);

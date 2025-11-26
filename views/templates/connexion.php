@@ -1,8 +1,7 @@
 <main class="auth-container">
-
+    <div class="auth-left">
     <!-- Partie gauche : formulaire -->
-    <section class="auth-left">
-        <div class="auth-box">
+    <section class="auth-box">
             <h2>Connexion</h2>
 
             <form method="post" action="index.php?page=loginAction" class="auth-form">

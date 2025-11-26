@@ -32,7 +32,7 @@
                                 class="book-image"/>
                         </a>
                         <h4><?= htmlspecialchars($book->getTitle()) ?></h4>
-                        <p>par <strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
+                        <p> <strong><?= htmlspecialchars($book->getAuthor()) ?></strong></p>
 
                         <p><em>Vendu par : <?= htmlspecialchars($book->getNickname()) ?></em></p>
 
