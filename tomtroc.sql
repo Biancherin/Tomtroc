@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 21 nov. 2025 à 10:15
+-- Généré le : mer. 26 nov. 2025 à 11:19
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -35,8 +35,8 @@ CREATE TABLE `library` (
   `image` varchar(255) DEFAULT NULL,
   `content` text NOT NULL,
   `is_enabled` tinyint(1) NOT NULL,
-  `date_creation` datetime DEFAULT NULL,
-  `date_update` datetime DEFAULT NULL
+  `date_creation` datetime DEFAULT current_timestamp(),
+  `date_update` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -54,13 +54,12 @@ INSERT INTO `library` (`book_id`, `user_t_id`, `title`, `author`, `image`, `cont
 (8, 6, 'Hygge', 'Meik Wiking', 'img/hygge.png', '', 1, '2025-10-21 19:06:59', '2025-10-21 19:06:59'),
 (9, 8, 'Innovation', 'Matt Ridley', 'img/innovation.png', '', 1, '2025-10-14 19:07:49', '2025-10-14 19:07:49'),
 (10, 2, 'Psalms', 'Alabaster', 'img/psalms.png', '', 1, '2025-10-14 19:08:46', '2025-10-14 19:08:46'),
-(11, 3, 'Thinking, Fast & Slow', 'Daniel Kahneman', 'img/tfs.png', 'test commentaires surper livre', 1, '2025-10-14 19:09:42', '2025-11-18 09:05:53'),
+(11, 3, 'Thinking, Fast & Slow', 'Daniel Kahneman', 'img/69203e62e17fa-tfs.png', 'test commentaires surper livre', 1, '2025-10-14 19:09:42', '2025-11-21 11:26:44'),
 (14, 2, 'A Book Full Of Hope', 'Rupi Kaur', 'img/abook.png', '', 1, '2025-10-14 19:12:29', '2025-10-14 19:12:29'),
 (15, 3, 'The Subtle Art Of...', 'Mark Manson', 'img/thesubtle.png', 'ce livre est important pour l\'art de ...', 1, '2025-10-07 19:13:17', '2025-11-21 09:56:42'),
 (16, 4, 'Narnia', 'C.S Lewis', 'img/narnia.png', '', 1, '2025-10-07 19:14:10', '2025-10-07 19:14:10'),
 (17, 5, 'Company Of One', 'Paul Jarvis', 'img/company.png', '', 1, '2025-10-07 19:14:59', '2025-10-07 19:14:59'),
-(18, 2, 'The Two Towers', 'J.R.R Tolkien', 'img/thetwo.png', '', 1, '2025-10-07 19:15:45', '2025-10-07 19:15:45'),
-(26, 3, 'test4', 'test', NULL, 'test', 1, NULL, NULL);
+(18, 2, 'The Two Towers', 'J.R.R Tolkien', 'img/thetwo.png', '', 1, '2025-10-07 19:15:45', '2025-10-07 19:15:45');
 
 -- --------------------------------------------------------
 
@@ -84,14 +83,18 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`message_id`, `sender_id`, `receiver_id`, `book_id`, `content`, `nickname`, `date_message`, `is_read`) VALUES
-(1, 1, 2, 1, 'test', 'Camille1', '2025-11-12 17:57:10', 1),
 (2, 1, 2, 1, 'test', 'Camille1', '2025-11-12 17:57:23', 1),
 (3, 2, 4, 7, 'test2', 'Alexlecture', '2025-11-13 11:08:04', 1),
 (4, 4, 3, 15, 'testhugo', 'nathalire', '2025-11-13 11:09:16', 1),
-(5, 1, 1, 4, 'testicone', 'Camille1', '2025-11-14 09:03:18', 1),
 (6, 1, 2, 2, 'testicone', 'Camille1', '2025-11-14 09:10:03', 1),
 (9, 3, 2, 2, 'helloalex', 'Hugo_1990_12', '2025-11-17 09:58:59', 1),
-(10, 1, 3, 15, 'hellohugo', 'Camille1', '2025-11-17 10:08:08', 1);
+(10, 1, 3, 15, 'hellohugo', 'Camille1', '2025-11-17 10:08:08', 1),
+(12, 1, 3, NULL, 'hello', 'Camille1', '2025-11-25 08:42:11', 1),
+(13, 1, 3, NULL, 'hello', 'Camille1', '2025-11-25 08:57:57', 1),
+(14, 3, 1, NULL, 'helloyou', 'Hugo_1990_12', '2025-11-25 09:31:13', 1),
+(15, 2, 1, 4, 'testalex', 'Alexlecture1', '2025-11-25 16:07:25', 1),
+(16, 1, 2, NULL, 'hello alex', 'Camille1', '2025-11-26 09:10:06', 1),
+(17, 2, 1, NULL, 'hellotest', 'Alexlecture1', '2025-11-26 09:28:51', 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +117,7 @@ CREATE TABLE `user_t` (
 
 INSERT INTO `user_t` (`user_t_id`, `email`, `password`, `nickname`, `image`, `date_creation`) VALUES
 (1, 'camille10@gmail.com', '$2y$10$slOiZyjZ.mVJfAFB1na0G.r0BMofe6LuBHz7ex/TooTy4Xx7uvh/.', 'Camille1', 'img/camilleclub.png', '2025-11-06 13:09:08'),
-(2, 'alex@gamil.com', '$2y$10$2g8nUeMBrVbpVWf82GaNnuL1YQV37Xan/9/P4GAt7nwGsbUh8xPr6', 'Alexlecture1', 'img/alexlecture.png', '2025-11-06 13:09:08'),
+(2, 'alex@gamil.com', '$2y$10$w2PZqMuwGrvlqVXJj1eE..rRLiHMcUY0I2AL489yaXtiPdSF6FO72', 'Alexlecture1', 'img/alexlecture.png', '2025-11-06 13:09:08'),
 (3, 'hugo@gmail.com', '$2y$10$LQqp5MIZDZp8C2HnVa8oguz.o1dpH7wjJs0ObtmSzqmx2sxMhSyPq', 'Hugo_1990_12', 'img/Hugo.png', '2025-11-06 13:09:08'),
 (4, 'nathalire@gmail.com', '$2y$10$vFqN6Z0hIzBrFlkKDQlS9egJbHhDtdLlFpFq2JygfjaLRP3L4Zysy', 'nathalire', 'img/nathalire.png', '2025-11-06 13:09:08'),
 (5, 'julie@gmail.com', '$2y$10$GmJiSZR6XplZDb1HAnL58eo7ooxmGjqsR6l/CGOEIH1sJ.8.MrPsW', 'juju1432', 'img/default-user.png', '2025-11-06 13:09:09'),
@@ -127,7 +130,9 @@ INSERT INTO `user_t` (`user_t_id`, `email`, `password`, `nickname`, `image`, `da
 (13, 'marc@gmail.com', '$2y$10$eBsc.iMXGol2YHfjuDv1TemkHxshmv5zKCTvY1r5FW.ae012cWgR.', 'marc', 'img/default-user.png', '2025-11-06 13:09:09'),
 (14, 'nadia@gmail.com', '$2y$10$1VHP2tQAmf51yTj/GedeI.9fZH7ES6ZIJsscJ/zpqGPgTX5NuJG1S', 'nadia', 'img/default-user.png', '2025-11-06 13:09:09'),
 (15, 'olivier@gmail.com', '$2y$10$mqjq4E8pOh43iSGlWXKJF.eFbfctjvyjPUb66lPyynSeY0cJEx8iq', 'olivier', 'img/default-user.png', '2025-11-06 13:09:09'),
-(16, 'test@gmail.com', '$2y$10$pfD8CktLqLLMx2.iB5g6jOlyuLhYST.vrx2ZimvevWykIvFFyYBJW', 'testpseudo', 'img/default-user.png', '2025-11-21 09:22:16');
+(16, 'test@gmail.com', '$2y$10$pfD8CktLqLLMx2.iB5g6jOlyuLhYST.vrx2ZimvevWykIvFFyYBJW', 'testpseudo', 'img/default-user.png', '2025-11-21 09:22:16'),
+(17, 'camille@gmail.com', '$2y$10$AF6/i2HbqTuuxmdDONKRdO41JXjGqaoNqsATn0C0pjTO4Hy0OJrHK', 'CamilleClubLit', 'img/default-user.png', '2025-11-21 10:21:33'),
+(34, 'testphoto@gmail.com', '$2y$10$MIUbwaldGuFP6OjpxDA4/eMhN4TC5a8V.A9fhIRCYan8PZNHUWbGG', 'testphoto1', 'img/default-user.png', '2025-11-25 16:05:29');
 
 --
 -- Index pour les tables déchargées
@@ -164,19 +169,19 @@ ALTER TABLE `user_t`
 -- AUTO_INCREMENT pour la table `library`
 --
 ALTER TABLE `library`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `user_t`
 --
 ALTER TABLE `user_t`
-  MODIFY `user_t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Contraintes pour les tables déchargées
