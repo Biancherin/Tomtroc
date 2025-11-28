@@ -1,9 +1,9 @@
 <?php
 define('ROOT_PATH', __DIR__ . '/..');
 
-$host = 'localhost';
+$host = '';
 $dbname = 'tomtroc';
-$user = 'root';
+$user = '';
 $pass = '';
 
 try {

@@ -501,7 +501,7 @@ body {
   width: 100%;
 }
 .badge-indispo{
-  background: #C12727
+  background: ""
 }
 
 
@@ -1130,7 +1130,7 @@ input:-webkit-autofill {
     padding: 40px;
     max-width: 1400px;
     margin: auto;
-    align-items: flex-start;
+    align-items: stretch;
 
 }
 
@@ -1139,8 +1139,9 @@ input:-webkit-autofill {
 ============================= */
 .profilu {
     background: #ffffff;  /* Couleur de fond */
-    width: 341px;
-    height: 579px;         /* Largeur */
+    min-width: 341px;
+    min-height: 579px;         /* Largeur */
+    height: auto;
     border-radius: 12px;  /* coins légèrement arrondis */
     padding: 30px 20px;   /* espace intérieur */
     display: flex;
@@ -1234,7 +1235,8 @@ input:-webkit-autofill {
 .livresu {
     background: #ffffff;   /* Couleur de fond */
     width: 771px;              /* ✨ largeur fixée */
-    height: 579px;
+    min-height: 579px;
+    height: auto;
     border-radius: 12px;
     overflow-y: auto;          /* ✨ scroll interne */
     overflow-x: hidden;
