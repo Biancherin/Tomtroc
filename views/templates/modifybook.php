@@ -22,13 +22,15 @@
                   enctype="multipart/form-data">
 
                 <input type="hidden" name="book_id" value="<?= $book->getBookId() ?>">
-            <!-- Input file caché -->
-            <input type="file" name="image" id="imageUpload" accept="image/*" style="display:none;" required>
+            
+                <!-- Input file caché -->
+                <input type="file" name="image" id="imageUpload" accept="image/*" style="display:none;" required>
 
-            <!-- Label cliquable -->
-            <label for="imageUpload" class="custom-upload">Modifier la photo</label>
-            <!-- Bouton submit spécifique à ce formulaire -->
-            <button type="submit" class="btn-save">Valider la photo</button>
+                <!-- Label cliquable -->
+                <label for="imageUpload" class="custom-upload">Modifier la photo</label>
+
+                <!-- Bouton submit spécifique à ce formulaire -->
+                <button type="submit" class="btn-save">Valider la photo</button>
 
             </form>
         </div>
@@ -41,30 +43,33 @@
                 <input type="hidden" name="book_id" value="<?= $book->getBookId() ?>">
 
                 <!-- TITRE -->
-                <label class="small-label">Titre</label>
+                <label for="title" class="small-label">Titre</label>
                 <input type="text" 
-                       name="title" 
-                       class="input-field"
-                       value="<?= htmlspecialchars($book->getTitle()) ?>" 
-                       required>
+                    id="title"
+                    name="title" 
+                    class="input-field"
+                    value="<?= htmlspecialchars($book->getTitle()) ?>" 
+                    required>
 
                 <!-- AUTEUR -->
-                <label class="small-label">Auteur</label>
+                <label for="author" class="small-label">Auteur</label>
                 <input type="text" 
-                       name="author"
-                       class="input-field"
-                       value="<?= htmlspecialchars($book->getAuthor()) ?>" 
-                       required>
+                    id="author"
+                    name="author"
+                    class="input-field"
+                    value="<?= htmlspecialchars($book->getAuthor()) ?>" 
+                    required>
 
                 <!-- COMMENTAIRES -->
-                <label class="small-label">Commentaires</label>
-                <textarea name="content" 
-                          class="input-field textarea-field" 
-                          required><?= htmlspecialchars($book->getContent()) ?></textarea>
+                <label for="content" class="small-label">Commentaires</label>
+                <textarea id="content"
+                        name="content" 
+                        class="input-field textarea-field" 
+                        required><?= htmlspecialchars($book->getContent()) ?></textarea>
 
                 <!-- DISPONIBILITÉ -->
-                <label class="small-label">Disponibilité</label>
-                <select name="is_enabled" class="input-field">
+                <label for="is_enabled" class="small-label">Disponibilité</label>
+                <select id="is_enabled" name="is_enabled" class="input-field">
                     <option value="1" <?= $book->getIsEnabled() ? 'selected' : '' ?>>
                         Disponible
                     </option>
@@ -77,6 +82,6 @@
             </form>
 
         </div>
-
     </div>
+
 </section>

@@ -17,8 +17,9 @@
             <p class="auth-footer">
                 Pas de compte ? <a href="index.php?page=inscription">Inscrivez-vous</a>
             </p>
-        </div>
+        
     </section>
+    </div>
 
     <!-- Partie droite : image -->
     <section class="auth-right">

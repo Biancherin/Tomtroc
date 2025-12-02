@@ -21,4 +21,18 @@ class BaseController {
             );
         }
     }
+
+    // Affiche la page d erreur 404
+    public function error404() 
+   {
+    http_response_code(404); // code HTTP 404
+
+    // Inclure les parties du template directement
+    require ROOT_PATH . '/Views/templates/header.php';
+    require ROOT_PATH . '/Views/templates/404.php';
+    require ROOT_PATH . '/Views/templates/footer.php';
+
+    exit; // arrêter l'exécution                                   // stoppe l’exécution
+    }
+
 }

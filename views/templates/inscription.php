@@ -20,8 +20,9 @@
             <p class="auth-footer">
                 Déjà inscrit ? <a href="index.php?page=connexion">Connectez-vous</a>
             </p>
-         </div>
         </section>
+    </div>
+        
 
     <!-- Partie droite : image -->
     <section class="auth-right">

@@ -15,6 +15,7 @@ $page = $_GET['page'] ?? 'home';
 $libraryController = new LibraryController($dbConnection);
 $userController = new UserController($dbConnection);
 $messageController = new MessageController($dbConnection);
+$baseController = new BaseController($dbConnection);
 
 
 // Router selon la page
@@ -103,6 +104,6 @@ switch ($page) {
     break;
 
     default:
-        echo "<p>Page non trouvée.</p>";
-        break;
+        $baseController->error404();
+        exit;
 }

@@ -1,9 +1,9 @@
 <?php
 define('ROOT_PATH', __DIR__ . '/..');
 
-$host = '';
+$host = 'localhost';
 $dbname = 'tomtroc';
-$user = '';
+$user = 'root';
 $pass = '';
 
 try {
@@ -12,4 +12,5 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+
 

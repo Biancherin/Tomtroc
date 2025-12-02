@@ -1,0 +1,13 @@
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Définir la base de réécriture (si ton projet est dans /tomtroc)
+RewriteBase /tomtroc/
+
+# Si le fichier ou le dossier existe, ne rien faire
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Sinon, rediriger tout vers index.php en passant l'URL comme paramètre 'page'
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]

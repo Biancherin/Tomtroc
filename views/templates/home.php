@@ -17,7 +17,7 @@
     </div>
 
     <div class="hero-image">
-        <img src="img/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png" alt="Image page accueil" />
+        <img src="img/hamza-nouasria-KXrvPthkmYQ-unsplash1.png" alt="Image page accueil" />
         <div class="image-author">Hamza</div>
     </div>
     </div>
@@ -56,28 +56,31 @@
     <div class="how-grid">
 
         <div class="how-card">
-            <h4>Inscrivez-vous</h4>
+            <h3>Inscrivez-vous</h3>
             <p>Créez gratuitement votre compte sur notre plateforme.</p>
         </div>
 
         <div class="how-card highlight">
-            <h4>Ajoutez vos livres</h4>
+            <h3>Ajoutez vos livres</h3>
             <p>Ajoutez les livres que vous souhaitez échanger à votre profil.</p>
         </div>
 
         <div class="how-card">
-            <h4>Parcourez les autres</h4>
+            <h3>Parcourez les autres</h3>
             <p>Consultez les livres disponibles chez d'autres membres.</p>
         </div>
 
         <div class="how-card">
-            <h4>Échangez & discutez</h4>
+            <h3>Échangez & discutez</h3>
             <p>Proposez un échange et discutez avec d’autres passionnés.</p>
         </div>
 
     </div>
+    
+        <a href="index.php?page=booklist" class="btn btn-center">Voir tous les livres</a>
 
-    <a href="index.php?page=booklist" class="btn btn-center">Voir tous les livres</a>
+    </div>
+ 
 </section>
 
 

@@ -1,24 +1,27 @@
+<?php
+/** @var User $user */
+?>
+
 <section class="mon-compte container">
 
     <!-- ✅ PROFIL UTILISATEUR -->
     <div class="profilu">
-        <img src="<?= htmlspecialchars($user->getImage() ?: 'img/defaultavatar.png') ?>" 
-             alt="Photo de profil <?= htmlspecialchars($user->getNickname()) ?>" 
+        <img src="<?= htmlspecialchars($user?->getImage() ?: 'img/defaultavatar.png') ?>" 
+             alt="Photo de profil <?= htmlspecialchars($user?->getNickname() ?: 'Invité') ?>" 
              class="profilu-photo">
 
         <div class="profile-divider"></div>
 
-        <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
+        <h2><?= htmlspecialchars($user?->getNickname() ?: 'Invité') ?></h2>
 
-        <p>Membre depuis <?= $user->getDateCreation()->format('Y') ?></p>
+        <p>Membre depuis <?= $user?->getDateCreation() ? $user->getDateCreation()->format('Y') : 'N/A' ?></p>
 
         <h3>Bibliothèque</h3>
 
-        <p><strong><?= count($books) ?></strong> livre<?= count($books) > 1 ? 's' : '' ?></p>
+        <p><strong><?= count($books ?? []) ?></strong> livre<?= count($books ?? []) > 1 ? 's' : '' ?></p>
 
         <a href="index.php?page=messages&to=<?= $userId ?>" class="btnu">Écrire un message</a>
     </div>
-
 
     <!-- ✅ TABLEAU DES LIVRES -->
     <div class="livresu">

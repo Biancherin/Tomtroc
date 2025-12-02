@@ -1,3 +1,7 @@
+<?php
+/** @var User $user */
+?>
+
 <section class="mon-profil">
     <h1>Mon compte</h1>
 
@@ -9,8 +13,8 @@
 
         <!-- Photo de profil ou photo par défaut -->
        <img 
-            src="<?= htmlspecialchars($user->getImage() ?: 'img/defaultavatar.png') ?>"
-            alt="Photo de profil <?= htmlspecialchars($user->getNickname()) ?>"
+            src="<?= htmlspecialchars($user?->getImage() ?: 'img/defaultavatar.png') ?>"
+            alt="Photo de profil <?= htmlspecialchars($user?->getNickname() ?: 'Invité') ?>"
             class="profilu-photo"
         >
     
@@ -25,10 +29,10 @@
 
         </div>
 
-            <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
+            <h2><?= htmlspecialchars($user?->getNickname()) ?></h2>
 
             <p class="membre-depuis">
-                Membre depuis <?= $user->getDateCreation() ? $user->getDateCreation()->format('M Y') : 'Inconnue' ?>
+                Membre depuis <?= $user?->getDateCreation() ? $user?->getDateCreation()->format('M Y') : 'Inconnue' ?>
             </p>
 
             <h3>BIBLIOTHÈQUE</h3>
